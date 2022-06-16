@@ -1,0 +1,22 @@
+<div class="main">
+  <div class="main__title">
+    <h1><a [routerLink]="['/']" style="color: yellow; text-decoration: none;">Study of JS</a></h1>
+  </div>
+  <div class="timer__main">
+    <div class="main__name">
+      <h2 class="name">Таймер:</h2>
+    </div>
+    <div class="main__content">
+      <h3 class="content__message">Введите количество минут</h3>
+      <app-input type="number" [type]="'0'" (onImput)="onTicker($event)" class="content__input"></app-input>
+      <div class="content__button">
+        <app-button [btnText]="'Старт'" [class]="'secondary'" (click)="startTimer()" style="padding-right: 10px;"></app-button>
+        <app-button [btnText]="'Стоп'"  [class]="'primary'" (click)="stopTimer()"></app-button>
+      </div>
+    </div>
+    <div class="timer__show">
+      <p class="show__timer"></p>
+    </div>
+  </div>
+</div>
+<div style="border-bottom: 1.8px solid black; padding-top: 10px;"></div>

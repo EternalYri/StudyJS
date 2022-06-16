@@ -1,0 +1,18 @@
+<div class="weather">
+  <div class="weather__head">
+    <h3 class="head__title">Погода</h3>
+    <app-input type="text" name="weather" [type]="'Санкт-Петербург'" (onImput)="onTicker($event)"></app-input>
+    <app-button [class]="'secondary'" (click)="reqest()" [btnText]="'Добавить'"></app-button>
+  </div>
+  <div class="weather__show" *ngIf="!error; else errorBlock">
+    <p class="show__city"><strong>{{weatherTic}}</strong></p>
+    <img [src] = icon class="show__icon">
+    <p class="show__temperature">{{temp | number}} c</p>
+    <p class="show__wind">Ветер: {{wind}} м/с</p>
+  </div>
+  <ng-template #errorBlock>
+    <p>Подождите...</p>
+  </ng-template>
+  <div style="border-bottom: 1.8px solid black;"></div>
+</div>
+

@@ -1,0 +1,11 @@
+.main {
+  font-family: 'Roboto';
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  .content{
+    padding-top: 50px;
+    padding-left: var(--padding-block);
+  }
+}

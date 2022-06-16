@@ -1,0 +1,33 @@
+.btn {
+  font-family: 'Roboto';
+  border: 1px solid;
+  background-color: var(--main-color);
+  cursor: pointer;
+  border-radius: 8px;
+  width: 90px;
+  height: 35px;
+  font-size: 16px;
+  font-weight: serif;
+  letter-spacing: 0.5px;
+
+  &.neutral {
+    background-color: var(--main-color);
+    &:hover {
+      background-color: var(--main-color-hover);
+    }
+  }
+
+  &.primary {
+    background-color: var(--primaru-color);
+    &:hover {
+      background-color: var(--primaru-color-hover);
+    }
+  }
+
+  &.secondary {
+    background-color: var(--secondery-color);
+    &:hover {
+      background-color: var(--secondary-color-hover);
+    }
+  }
+}

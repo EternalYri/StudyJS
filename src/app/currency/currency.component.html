@@ -1,0 +1,24 @@
+
+<div class="currency">
+  <div class="currency__input">
+    <h3 class="input__title">Курсы криптовалют</h3>
+    <app-input type="text" [type]="'BTC'" (onImput)="onTicker($event)"></app-input>
+    <app-button  [class]="'secondary'" [btnText]="'Добавить'" (click)="reqest()"></app-button>
+  </div>
+  <div class="currency__block" *ngIf="!loading; else error">
+    <div *ngFor="let elem of arr; let i = index" class="currency__show">
+      <div class="show__choice">
+        <div class="show__currency">
+          <p>{{i +1}}: <strong class="currency__name">{{elem.symbol | slice:0:-4}}</strong></p>
+          <p>{{elem.price | number}}</p>
+        </div>
+        <div class="close" (click)="del(i)"></div>
+      </div>
+      <div style="border-bottom: 1.8px solid black;"></div>
+    </div>
+  </div>
+  <ng-template #error>
+    <p>Подождите...</p>
+  </ng-template>
+</div>
+

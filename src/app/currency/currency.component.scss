@@ -1,0 +1,43 @@
+.currency {
+  font-family: 'Roboto';
+  width: 200px;
+  .currency__input{
+    border-bottom: 1.8px solid black;
+    padding-bottom: 10px;
+  }
+  .currency__block{
+    max-height: 180px;
+    overflow-y: scroll;
+  }
+  .show__choice{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .show__currency{
+    flex: 85%
+  }
+}
+.close{
+  position: relative;
+  padding-top: 15px;
+  opacity: 0.3;
+  flex: 15%;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before, .close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 20px;
+  width: 2px;
+  background-color: white;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
