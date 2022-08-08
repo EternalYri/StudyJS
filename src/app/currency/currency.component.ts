@@ -1,30 +1,31 @@
 import { Component} from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { CurrencyService } from '../service/currency.service';
 
 
 @Component({
   selector: 'app-currency',
   templateUrl: './currency.component.html',
-  styleUrls: ['./currency.component.scss']
+  styleUrls: ['./currency.component.scss'],
+  providers: [CurrencyService]
 })
 export class CurrencyComponent{
   loading = false;
   arr: any = [];
   inputValue = '';
   div: any = document.getElementsByClassName('currency__show')
-  response: any;
 
-  constructor(public api: HttpClient) { }
+  constructor(private http: CurrencyService) { }
   onTicker($event: any) :void {
     this.inputValue = $event;
   }
+
   reqest() {
     try{
       this.loading = true;
-      this.api.get(`https://api.binance.com/api/v3/ticker/price?symbol=${this.inputValue.toUpperCase()}USDT`)
+      this.http.value = this.inputValue.toUpperCase()
+      this.http.onAdd()
       .subscribe((data)=>{
-        this.response = data;
-        this.arr.push(this.response);
+        this.arr.push(data);
         this.loading = false;
       })
     } catch(error) {
@@ -32,8 +33,8 @@ export class CurrencyComponent{
       this.loading = false;
     }
     }
-    del(data: number) {
-      this.div[data].remove();
-      this.arr.splice(data, 1);
-    }
+
+  del(data: number) {
+    this.arr.splice(data, 1);
+  }
 }
